@@ -1,0 +1,80 @@
+/* body {
+
+} */
+
+#cryptos {
+    align-content: space-around;
+    display: flex;
+    height: 1000px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#cryptoOne {
+    background-image: url("http://pngimg.com/uploads/bitcoin/bitcoin_PNG49.png");
+    background-size: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 5px solid;
+    height: 250px;
+    width: 250px;
+    padding-left: 15px;
+}
+
+#cryptoTwo {
+    background-image: url("https://vignette.wikia.nocookie.net/cryptocurrency/images/5/5d/Litecoin.png/revision/latest/scale-to-width-down/480?cb=20140316100431");
+    background-size: 150px;
+    background-position: center;
+    background-repeat: no-repeat;    
+    border: 5px solid;
+    height: 250px;
+    width: 250px;
+    padding-left: 15px;
+}
+
+#cryptoThree {
+    background-image: url("https://www.ethereum.org/images/logos/ETHEREUM-ICON_Black_small.png");
+    background-size: cover;
+    border: 5px solid;
+    height: 250px;
+    width: 250px;
+    padding-left: 15px;
+}
+
+#cryptoFour {
+    background-image: url("https://www.bitcoincash.org/media-kit/3-bitcoin-cash-logo-ot-small.png");
+    background-size: 150px;
+    background-position: center;
+    background-repeat: no-repeat;    
+    border: 5px solid;
+    height: 250px;
+    width: 250px;
+    padding-left: 15px;
+}
+
+@media (max-width: 700px) {
+    #cryptoOne {
+        border: 2px solid;
+        height: 150px;
+        width: 150px;
+    }
+    
+    #cryptoTwo {
+        border: 2px solid;
+        height: 150px;
+        width: 150px;
+    }
+    
+    #cryptoThree {
+        border: 2px solid;
+        height: 150px;
+        width: 150px;
+    }
+    
+    #cryptoFour {
+        border: 2px solid;
+        height: 150px;
+        width: 150px;
+    }
+}
