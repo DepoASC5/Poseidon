@@ -1,0 +1,31 @@
+body {
+    background: #99badd;
+}
+
+h1 {
+    text-align: center;
+}
+
+#bitcoinGraph {
+    width: 90%;
+    height: 70%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#img_container {
+    background: white;
+    border: 2px solid black;
+    width: 90%;
+}
+
+#values_container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#values {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}

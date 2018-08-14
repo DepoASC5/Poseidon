@@ -5,10 +5,115 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script src="main.js" defer></script>
+    <script src="main1.js" defer></script>
+       <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-    <h1>EYYp</h1>
+    
+    <div id="loginPage">
+        <form id="loginForm">
+            <input id="username" placeholder="Enter Username" type="text">
+
+            <input id="password" placeholder="Enter Password" type="password">
+            
+            <button id="Login">Login</button>
+
+            <button id="createAccountButton">Create Your Account</button>
+        </form>
+    </div>
+    <div id="createAccountPage">
+
+        <form id="signUpForm">
+            <img id = "topPageLogo2" src = "logo.jpg">
+            <br>
+            <input id="newUsername" placeholder="Enter Username" type="text">
+            <br>
+            <br>
+            <input id="newPassword" placeholder="Enter Password" type="password">
+            
+            <button id="signUp">Sign up</button>
+        
+        </form>
+        <form id="CoinForm" hidden>
+            <input id="newBitcoin" placeholder="Bitcoin" type="text">
+            <input id="newEthereum" placeholder="Ethereum" type="text">
+            <input id="newLitecoin" placeholder="Litecoin" type="text">
+            <input id="newBitcoinCash" placeholder="BitcoinCash" type="text">           
+            <button id="newCoinButton">Submit</button>
+        </form>
+    </div>
+    <div id="MainPage" hidden>
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col-xs-6"><img src="logo.jpg" class="img-fluid" alt="Responsive image"></div>
+                <div class="col-xs-6"> <span class="glyphicon glyphicon-cog"></span></div>
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary">Day</a>
+                <a href="#" class="btn btn-primary">Month</a>
+                <a href="#" class="btn btn-primary">Quater</a>
+                <a href="#" class="btn btn-primary">Year</a>
+              </div> 
+            </div> 
+        </div> -->
+        <div id = "topOfPage">
+                <img id = "topPageLogo" src = "logo.jpg">
+                    <h1>Poseidon</h1>
+                <i id = "settingsIcon" class="fas fa-cog"></i>
+            </div>
+            <div id = "userTotal">
+                <div id = "userTotalInfo">
+                    <h2>Your Total: 5.14%</h2>
+                </div>
+            </div>
+            <div id = "timeButtons">
+                <button id = "Day" class = "btn-group">Day</button>
+                <button id = "Month" class = "btn-group">Month</button>
+                <button id = "Year" class = "btn-group">Year</button>
+                <button id = "Quarter" class = "btn-group">Quarter</button>
+            </div>
+            <div id = "coin_container">
+                    <div id = "bitcoin_container">
+                        <h2 id = "coin1_name">Bitcoin, (BTC):  </h2>
+                        <h3 id = "bitcoin_price"></h3>
+                        <h4 id = "bitcoin_perIn24"></h4>
+                        <button id = "bitcoinMoreInfo">More Info</button>
+                    </div>
+                    <div id = "litecoin_container">
+                        <h2 id = "coin2_name">Litecoin, (LTC):  </h2>
+                        <h3 id = "litecoin_price"></h3>
+                        <h4 id = "litecoin_perIn24"></h4>
+                        <button id = "litecoinMoreInfo">More Info</button>
+                    </div>
+                    <div id = "ethereum_container">
+                        <h2 id = "coin3_name">Ethereum, (ETH):  </h2>
+                        <h3 id = "ethereum_price"></h3>
+                        <h4 id = "ethereum_perIn24"></h4>
+                        <button id = "ethereumMoreInfo">More Info</button>
+                    </div>
+                    <div id = "bitcoinCash_container">
+                        <h2 id = "coin4_name">Bitcoin Cash, (BCH):  </h2>
+                        <h3 id = "bitcoinCash_price"></h3>
+                        <h4 id = "bitcoinCash_perIn24"></h4>
+                        <button id = "bitcoinCashMoreInfo">More Info</button>
+                    </div>
+    
+
+
+    </div>
 </body>
 </html>
+ 
