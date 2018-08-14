@@ -5,47 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <!--firebase-->
     <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script src="APIFetch.js" defer></script>
     <script src="main.js" defer></script>
-    <script src="main1.js" defer></script>
        <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
     
     <div id="loginPage">
         <form id="loginForm">
-            <input id="username" placeholder="Enter Username" type="text">
-
-            <input id="password" placeholder="Enter Password" type="password">
-            
+            <h1>Login</h1>
+            <input id="emailOrUsername" placeholder="Enter Email or Username" type="text" class = "loginBox">
+            <input id="password" placeholder="Enter Password" type="password" class = "loginBox">
             <button id="Login">Login</button>
-
-            <button id="createAccountButton">Create Your Account</button>
+            <h4>Don't have an account? <a id = "createAccountButton">Sign Up Now.</a></h4>
         </form>
-    </div>
-    <div id="createAccountPage">
 
+    </div>
+    <div id="createAccountPage" hidden>        
         <form id="signUpForm">
-            <img id = "topPageLogo2" src = "logo.jpg">
+            <img id = "topPageLogo2" src = "assets/Poseidon2.png">
             <br>
             <input id="newUsername" placeholder="Enter Username" type="text">
             <br>
+            <input id="newEmail" placeholder="Enter Email" type="text">
             <br>
             <input id="newPassword" placeholder="Enter Password" type="password">
-            
+            <br>
+            <input id="confirmPassword" placeholder="Confirm your Password" type="password">
             <button id="signUp">Sign up</button>
+            <button id="goBack">Back To Login</button>
         
         </form>
         <form id="CoinForm" hidden>
@@ -57,63 +57,219 @@
         </form>
     </div>
     <div id="MainPage" hidden>
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-xs-6"><img src="logo.jpg" class="img-fluid" alt="Responsive image"></div>
-                <div class="col-xs-6"> <span class="glyphicon glyphicon-cog"></span></div>
-            <div class="btn-group">
-                <a href="#" class="btn btn-primary">Day</a>
-                <a href="#" class="btn btn-primary">Month</a>
-                <a href="#" class="btn btn-primary">Quater</a>
-                <a href="#" class="btn btn-primary">Year</a>
-              </div> 
-            </div> 
-        </div> -->
-        <div id = "topOfPage">
-                <img id = "topPageLogo" src = "logo.jpg">
-                    <h1>Poseidon</h1>
-                <i id = "settingsIcon" class="fas fa-cog"></i>
-            </div>
-            <div id = "userTotal">
-                <div id = "userTotalInfo">
-                    <h2>Your Total: 5.14%</h2>
+               <!-- Shameek Stuff -->
+               <div id = "topOfPage">
+                    <img id = "topPageLogo" src = "assets/Poseidon2.png">
+                        <h1>Poseidon</h1>
+                        <div id = "settings_container1">
+                            <!-- Trigger the modal with a button -->
+                            <button type="button" id="settingsButton" class="btn btn-info btn-lg" data-toggle="modal" data-target="#settingsModal"><i id = "settingsIcon" class="fas fa-cog"></i></button>
+                          
+                            <!-- Modal -->
+                        <div class="modal fade" id="settingsModal" role="dialog">
+                              <div class="modal-dialog">
+                              
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"><h1>Settings</h1></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div id = "settings_container">
+                                        <h3 id = "currency">  </h3>
+                                        <div class="dropdown">
+                                            <button class="dropbtn">Currency</button>
+                                            <div class="dropdown-content">
+                                                <a id="CAD">CAD</a>
+                                                <a id="EURO">EURO</a>
+                                                <a id="KRW">KRW</a>
+                                                <a id="USD">USD</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                    
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                        </div>
+                      </div>  
                 </div>
-            </div>
-            <div id = "timeButtons">
-                <button id = "Day" class = "btn-group">Day</button>
-                <button id = "Month" class = "btn-group">Month</button>
-                <button id = "Year" class = "btn-group">Year</button>
-                <button id = "Quarter" class = "btn-group">Quarter</button>
-            </div>
-            <div id = "coin_container">
-                    <div id = "bitcoin_container">
-                        <h2 id = "coin1_name">Bitcoin, (BTC):  </h2>
-                        <h3 id = "bitcoin_price"></h3>
-                        <h4 id = "bitcoin_perIn24"></h4>
-                        <button id = "bitcoinMoreInfo">More Info</button>
+                <div id = "userTotal">
+                    <div id = "userTotalInfo">
+                        <h2>Your Total: 5.14%</h2>
                     </div>
-                    <div id = "litecoin_container">
-                        <h2 id = "coin2_name">Litecoin, (LTC):  </h2>
-                        <h3 id = "litecoin_price"></h3>
-                        <h4 id = "litecoin_perIn24"></h4>
-                        <button id = "litecoinMoreInfo">More Info</button>
-                    </div>
-                    <div id = "ethereum_container">
-                        <h2 id = "coin3_name">Ethereum, (ETH):  </h2>
-                        <h3 id = "ethereum_price"></h3>
-                        <h4 id = "ethereum_perIn24"></h4>
-                        <button id = "ethereumMoreInfo">More Info</button>
-                    </div>
-                    <div id = "bitcoinCash_container">
-                        <h2 id = "coin4_name">Bitcoin Cash, (BCH):  </h2>
-                        <h3 id = "bitcoinCash_price"></h3>
-                        <h4 id = "bitcoinCash_perIn24"></h4>
-                        <button id = "bitcoinCashMoreInfo">More Info</button>
-                    </div>
-    
-
-
+                </div>
+                <div id="yourCoins"></div>
+                <div id = "timeButtons">
+                    <button id = "Day" class = "btn-group">Day</button>
+                    <button id = "Week" class = "btn-group">Week</button>
+                    <!-- <button id = "Month" class = "btn-group">Month</button>
+                    <button id = "Year" class = "btn-group">Year</button> -->
+                </div>
+                <div id = "coin_container">
+                        <div id = "bitcoin_container">
+                            <h2 id = "coin1_name">Bitcoin, (BTC):  </h2>
+                            <h3 id = "bitcoin_price"></h3>
+                            <h4 id = "bitcoin_perIn24"></h4>
+                                <!-- Trigger the modal with a button -->
+                                <button type="button" id="bitcoinMoreInfo" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">More Info</button>
+                              
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" role="dialog">
+                                  <div class="modal-dialog">
+                                  
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title"><h1>Bitcoin, (BTC)</h1></h4>
+                                      </div>
+                                      <div class="modal-body">
+                                      
+                                  <center>
+                                      <div id = "img_container">
+                                          <img id = "bitcoinGraph" class = "cryptoGraph" src = "assets/Weekly/BTC8-6_8-13.png">
+                                      </div>
+                                  </center>
+                                  <div id = "values_container">
+                                      <div id = "values">
+                                          <h2 id = "myCoinAmount">My Coins: 500</h2>
+                                          <h2 id = "cashValue">Cash Value: $ome Dollar Amount</h2>
+                                      </div>
+                                  </div>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+                                    
+                                  </div>
+                                </div>
+                        </div>
+                        <div id = "litecoin_container">
+                            <h2 id = "coin2_name">Litecoin, (LTC):  </h2>
+                            <h3 id = "litecoin_price"></h3>
+                            <h4 id = "litecoin_perIn24"></h4>
+                            <button type="button" id="litecoinMoreInfo" class="btn btn-info btn-lg" data-toggle="modal" data-target="#litecoinModal">More Info</button>
+                              
+                            <!-- Modal -->
+                            <div class="modal fade" id="litecoinModal" role="dialog">
+                              <div class="modal-dialog">
+                              
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h1 class="modal-title">Litecoin, (LTC)</h1>
+                                  </div>
+                                  <div class="modal-body">
+                                  
+                              <center>
+                                  <div class = "img_container">
+                                      <img id = "litecoinGraph" class = "cryptoGraph" src = "assets/Weekly/LTC8-6_8-13.jpeg">
+                                  </div>
+                              </center>
+                              <div class = "values_container">
+                                  <div class = "values">
+                                      <h2 id = "litecoinAmount">My Coins: 500</h2>
+                                      <h2 id = "litecoincashValue">Cash Value: $ome Dollar Amount</h2>
+                                  </div>
+                              </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </div>
+                        </div>
+                        <div id = "ethereum_container">
+                            <h2 id = "coin3_name">Ethereum, (ETH):  </h2>
+                            <h3 id = "ethereum_price"></h3>
+                            <h4 id = "ethereum_perIn24"></h4>
+                            <!-- <button id = "ethereumMoreInfo" class = "moreInfo">More Info</button> -->
+                            <button type="button" id="ethereumMoreInfo" class="btn btn-info btn-lg" data-toggle="modal" data-target="#ethereumModal">More Info</button>
+                              
+                            <!-- Modal -->
+                            <div class="modal fade" id="ethereumModal" role="dialog">
+                              <div class="modal-dialog">
+                              
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"><h1>Ethereum, (ETH)</h1></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                  
+                              <center>
+                                  <div class = "img_container">
+                                      <img id = "ethereumGraph"  class = "cryptoGraph" src = "assets/Weekly/ETH8-6_8-13.jpeg">
+                                  </div>
+                              </center>
+                              <div class = "values_container">
+                                  <div class = "values">
+                                      <h2 id = "ethereumAmount">My Coins: 500</h2>
+                                      <h2 id = "ethereumcashValue">Cash Value: $ome Dollar Amount</h2>
+                                  </div>
+                              </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </div>
+                        </div>
+                        <div id = "bitcoinCash_container">
+                            <h2 id = "coin4_name">Bitcoin Cash, (BCH):  </h2>
+                            <h3 id = "bitcoinCash_price"></h3>
+                            <h4 id = "bitcoinCash_perIn24"></h4>
+                            <!-- <button id = "bitcoinCashMoreInfo" class = "moreInfo">More Info</button> -->
+                            <button type="button" id="bitcoinCashMoreInfo" class="btn btn-info btn-lg" data-toggle="modal" data-target="#bitcoinCashModal">More Info</button>
+                              
+                            <!-- Modal -->
+                            <div class="modal fade" id="bitcoinCashModal" role="dialog">
+                              <div class="modal-dialog">
+                              
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"><h1>Bitcoin Cash, (BCH)</h1></h4>
+                                  </div>
+                                  <div class="modal-body">
+                                  
+                              <center>
+                                  <div class = "img_container">
+                                      <img id = "bitcoinCashGraph"  class = "cryptoGraph" src = "assets/Weekly/BCH8-6_8-13.jpeg">
+                                  </div>
+                              </center>
+                              <div class = "values_container">
+                                  <div class = "values">
+                                      <h2 id = "bitcoinCashAmount">My Coins: 500</h2>
+                                      <h2 id = "bitcoinCashcashValue">Cash Value: $ome Dollar Amount</h2>
+                                  </div>
+                              </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                            </div>
+                        </div>
+                </div>  
     </div>
+
 </body>
 </html>
  
