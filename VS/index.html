@@ -19,49 +19,58 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Quicksand');
+        </style>
 </head>
-<body>
-    
+<body scroll="no" style="overflow: hidden">
+
     <div id="loginPage">
         <form id="loginForm">
-            <h1>Login</h1>
+            <strong><h1>POSEIDON</h1></strong>
             <input id="emailOrUsername" placeholder="Enter Email or Username" type="text" class = "loginBox">
             <input id="password" placeholder="Enter Password" type="password" class = "loginBox">
             <button id="Login">Login</button>
-            <h4>Don't have an account? <a id = "createAccountButton">Sign Up Now.</a></h4>
+            <strong><h4>Don't have an account? <a id = "createAccountButton">Sign Up</a> Today.</h4></strong>
         </form>
 
     </div>
-    <div id="createAccountPage" hidden>        
+    <div id="createAccountPage" hidden>
+        <div id = "signUpHeader">
+            <h1>Create Your Account Today</h1>      
+            <p>Let Poseidon help manage your growing Cryptoportfolio.</p>  
+        </div>
         <form id="signUpForm">
-            <img id = "topPageLogo2" src = "assets/Poseidon2.png">
+            <!-- <img id = "topPageLogo2" src = "assets/Poseidon2.png"> -->
             <br>
-            <input id="newUsername" placeholder="Enter Username" type="text">
+            <strong>Username:</strong>
+            <input id="newUsername" type="text">
             <br>
-            <input id="newEmail" placeholder="Enter Email" type="text">
+            <strong>Email Address:</strong>
+            <input id="newEmail" type="text">
             <br>
-            <input id="newPassword" placeholder="Enter Password" type="password">
+            <strong>Password:</strong>
+            <input id="newPassword" type="password">
             <br>
-            <input id="confirmPassword" placeholder="Confirm your Password" type="password">
+            <strong>Confirm Password:</strong>
+            <input id="confirmPassword" type="password">
             <button id="signUp">Sign up</button>
-            <button id="goBack">Back To Login</button>
-        
+            <h5>Already have an account? <span><a id="goBack">Login</a></span> instead.</h5>
         </form>
         <form id="CoinForm" hidden>
-            <input id="newBitcoin" placeholder="Bitcoin" type="text">
-            <input id="newEthereum" placeholder="Ethereum" type="text">
-            <input id="newLitecoin" placeholder="Litecoin" type="text">
-            <input id="newBitcoinCash" placeholder="BitcoinCash" type="text">           
+            <input class="coinInput" id="newBitcoin" placeholder="Bitcoin" type="text">
+            <input class="coinInput" id="newEthereum" placeholder="Ethereum" type="text">
+            <input class="coinInput" id="newLitecoin" placeholder="Litecoin" type="text">
+            <input class="coinInput" id="newBitcoinCash" placeholder="BitcoinCash" type="text">           
             <button id="newCoinButton">Submit</button>
         </form>
     </div>
     <div id="MainPage" hidden>
                <!-- Shameek Stuff -->
                <div id = "topOfPage">
-                    <img id = "topPageLogo" src = "assets/Poseidon2.png">
-                        <h1>Poseidon</h1>
-                        <div id = "settings_container1">
+                    <img id = "topPageLogo" src = "assets/PoseidonLogo.png">
+                        <h1>POSEIDON</h1>
+                        <!-- <div id = "settings_container1"> -->
                             <!-- Trigger the modal with a button -->
                             <button type="button" id="settingsButton" class="btn btn-info btn-lg" data-toggle="modal" data-target="#settingsModal"><i id = "settingsIcon" class="fas fa-cog"></i></button>
                           
@@ -79,7 +88,7 @@
                                     <div id = "settings_container">
                                         <h3 id = "currency">  </h3>
                                         <div class="dropdown">
-                                            <button class="dropbtn">Currency</button>
+                                            <button id = "currencySelector" class="dropbtn">Currency</button>
                                             <div class="dropdown-content">
                                                 <a id="CAD">CAD</a>
                                                 <a id="EURO">EURO</a>
@@ -97,11 +106,12 @@
                                 
                               </div>
                         </div>
-                      </div>  
+                      <!-- </div>   -->
                 </div>
                 <div id = "userTotal">
                     <div id = "userTotalInfo">
-                        <h2>Your Total: 5.14%</h2>
+                        <h2 id = "userTotalValue">Your Total:</i>;
+                        </h2>
                     </div>
                 </div>
                 <div id="yourCoins"></div>
@@ -138,7 +148,7 @@
                                   </center>
                                   <div id = "values_container">
                                       <div id = "values">
-                                          <h2 id = "myCoinAmount">My Coins: 500</h2>
+                                          <h2 >My Coins: <span id = "myCoinAmount"></span></h2>
                                           <h2 id = "cashValue">Cash Value: $ome Dollar Amount</h2>
                                       </div>
                                   </div>
@@ -176,7 +186,7 @@
                               </center>
                               <div class = "values_container">
                                   <div class = "values">
-                                      <h2 id = "litecoinAmount">My Coins: 500</h2>
+                                      <h2 >My Coins: <span id = "litecoinAmount"></span></h2>
                                       <h2 id = "litecoincashValue">Cash Value: $ome Dollar Amount</h2>
                                   </div>
                               </div>
@@ -215,7 +225,7 @@
                               </center>
                               <div class = "values_container">
                                   <div class = "values">
-                                      <h2 id = "ethereumAmount">My Coins: 500</h2>
+                                      <h2>My Coins: <span id = "ethereumAmount"></span></h2>
                                       <h2 id = "ethereumcashValue">Cash Value: $ome Dollar Amount</h2>
                                   </div>
                               </div>
@@ -254,7 +264,7 @@
                               </center>
                               <div class = "values_container">
                                   <div class = "values">
-                                      <h2 id = "bitcoinCashAmount">My Coins: 500</h2>
+                                      <h2 >My Coins: <span id = "bitcoinCashAmount"></span></h2>
                                       <h2 id = "bitcoinCashcashValue">Cash Value: $ome Dollar Amount</h2>
                                   </div>
                               </div>

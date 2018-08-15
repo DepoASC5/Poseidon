@@ -64,18 +64,27 @@ const JSstate={
         const newCoinButton= document.getElementById("newCoinButton");
         const CAsubmitButton= document.getElementById("signUp");
         const CAloginButton=document.getElementById("goBack");
+        const newLoginArray=[];
+        const newEmailArray=[];
+        
+        userDatabase.on('child_added', storeNewUsernamesAndPassword);
+        function storeNewUsernamesAndPassword(response){
+            newLoginArray.push(response.val().username);
+            newEmailArray.push(response.val().email);
+        }
         CAloginButton.addEventListener('click', function(event){
             event.preventDefault();
             $("#loginPage").show();
             $("#createAccountPage").hide();
         });
+        
         CAsubmitButton.addEventListener('click',createInfo);
         function createInfo(event){
             event.preventDefault();
-            if(newPassword.value===conPassword.value){
+        if(newPassword.value===conPassword.value&&newLoginArray.includes(newUsername.value)===false&&newEmailArray.includes(newEmail.value)===false){
             const tempUsername=newUsername.value;
-            const tempCreatePassword=newPassword.value;
             const tempEmail=newEmail.value;
+            const tempCreatePassword=newPassword.value;
             newPassword.value="";
             const user={
                 username:tempUsername,
@@ -87,10 +96,19 @@ const JSstate={
             $("#signUpForm").hide();
             setCoin();
         }
-        else{
+        else if(newPassword.value!=conPassword.value){
             alert("You're passwords do not match.");
             newPassword.value="";
             conPassword.value="";
+        }
+        else if(newEmailArray.includes(newEmail.value)===true){
+            alert("You're email is already being used.");
+            newEmail.value="";
+        }
+        else if(newLoginArray.includes(newUsername.value)===true){
+            alert("You're username is already taken.");
+            newUsername.value="";
+
         }
         }
         function setCoin() {
@@ -119,6 +137,8 @@ const JSstate={
                 coinDatabase.push(coin);
                 $("#createAccountPage").hide();
                 $("#MainPage").show();
+                mainPage();
+    
     }
 }
 }
@@ -139,24 +159,22 @@ function mainPage(){
 
         coinDatabase.on("child_added",function(response){
             const userCoin=response.val();
+            const bitcoinDiv= userCoin.bitcoin;
+            const ethereumDiv=  userCoin.ethereum;
+            const bitcoinCashDiv= userCoin.bitcoinCash;
+            const litecoinDiv= userCoin.litecoin;
             if(userCoin.username===emailOrUsername.value){
-                console.log("purple");
-               const bitcoinDiv= `My Coins: ${userCoin.bitcoin}`;
-               const ethereumDiv= `My Coins: ${userCoin.ethereum}`;
-               const bitcoinCashDiv= `My Coins: ${userCoin.bitcoinCash}`;
-               const litecoinDiv= `My Coins: ${userCoin.litecoin}`;
 
                $("#myCoinAmount").text(bitcoinDiv);
                $("#litecoinAmount").text(litecoinDiv); 
                $("#bitcoinCashAmount").text(ethereumDiv);
                $("#ethereumAmount").text(bitcoinCashDiv);
-                
+            coinAssembly(bitcoinCashDiv,bitcoinDiv,ethereumDiv,litecoinDiv);
             }
         })
 }
 
 
-});
 // Settings dropdown stuff
 $("#CAD").click(function(){
     $("#currency").text("Currency Selected: CAD");
@@ -171,3 +189,31 @@ $("#USD").click(function(){
     $("#currency").text("Currency Selected: USD");
 });
 
+//Grab Cash VALUES
+function coinAssembly (bc,b,e,l) {
+
+//Result of cashValue*current price = final
+let myCoinAccount = $("#cashValue");
+let litecoinAccount = $("#litecoincashValue");
+let ethereumAccount = $("#ethereumcashValue");
+let bitcoinCashAccount = $("#bitcoinCashcashValue");
+
+myCoinAccount.text(`Cash Value: $${Number((cashValue(myCoinAccount)*b).toFixed(2)).toLocaleString('en-GB')}`);
+litecoinAccount.text(`Cash Value: $${Number((cashValue(litecoinAccount)*l).toFixed(2)).toLocaleString('en-GB')}`);
+ethereumAccount.text(`Cash Value: $${Number((cashValue(ethereumAccount)*e).toFixed(2)).toLocaleString('en-GB')}`);
+bitcoinCashAccount.text(`Cash Value: $${Number((cashValue(bitcoinCashAccount)*bc).toFixed(2)).toLocaleString('en-GB')}`);
+function cashValue (coinName) {
+    //Gets rid of dollar sign
+    let num = coinName.text().substr(2);
+    //Turns into number
+    let final = parseFloat(num.replace(/,/g , ""));
+    return final;
+}
+
+
+function commafy(num) {
+    num.toString().replace( /\B(?=(?:\d{3})+)$/g, "," );
+  }
+}
+
+});
