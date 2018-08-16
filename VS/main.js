@@ -121,11 +121,8 @@ const JSstate={
                 const tempBitcoinCash=newBitcoinCash.value;
                 const tempCoinUsername= newUsername.value;
                 const tempCoinEmail=newEmail.value;
-                newUsername.value="";
-                newBitcoin.value="";
-                newBitcoinCash.value="";
-                newEthereum.value="";
-                newLitecoin.value="";
+               
+               
                 const coin={
                     username: tempCoinUsername,
                     email:tempCoinEmail,
@@ -137,7 +134,7 @@ const JSstate={
                 coinDatabase.push(coin);
                 $("#createAccountPage").hide();
                 $("#MainPage").show();
-                mainPage();
+                mainCreatePage();
     
     }
 }
@@ -164,14 +161,24 @@ function mainPage(){
             const bitcoinCashDiv= userCoin.bitcoinCash;
             const litecoinDiv= userCoin.litecoin;
             if(userCoin.username===emailOrUsername.value){
-
                $("#myCoinAmount").text(bitcoinDiv);
                $("#litecoinAmount").text(litecoinDiv); 
-               $("#bitcoinCashAmount").text(ethereumDiv);
-               $("#ethereumAmount").text(bitcoinCashDiv);
+               $("#bitcoinCashAmount").text(bitcoinCashDiv);
+               $("#ethereumAmount").text(ethereumDiv);
             coinAssembly(bitcoinCashDiv,bitcoinDiv,ethereumDiv,litecoinDiv);
             }
         })
+}
+function mainCreatePage(){
+    const newBitcoinDiv=newBitcoin.value;
+    const newEthereumDiv= newEthereum.value;
+    const newBitcoinCashDiv= newBitcoinCash.value;
+    const newLitecoinDiv= newLitecoin.value;
+    $("#myCoinAmount").text(newBitcoinDiv);
+    $("#litecoinAmount").text(newLitecoinDiv); 
+    $("#bitcoinCashAmount").text(newBitcoinCashDiv);
+    $("#ethereumAmount").text(newEthereumDiv);
+    coinAssembly(newBitcoinCashDiv,newBitcoinDiv,newEthereumDiv,newLitecoinDiv);
 }
 
 

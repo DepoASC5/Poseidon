@@ -47,8 +47,6 @@ color: black;
 
 #MainPage {
     background: linear-gradient(rgb(32,84,100),#424242);
-    height: 100vh;
-    /* linear-gradient(to right, blue, #9198e5); */
 }
 /*gradient back ground that can be changed*/  
 
@@ -113,6 +111,7 @@ color:rgb(244,230,153);
     margin:auto;
 }
 
+
 #bitcoin_container {
     background: #CDC9C9;
     border: 2px solid;
@@ -120,6 +119,8 @@ color:rgb(244,230,153);
     padding-bottom: 15px;
     width: 50vh;
     font-family: 'Quicksand', sans-serif;
+      
+    
 }
 
 #litecoin_container {
@@ -129,6 +130,8 @@ color:rgb(244,230,153);
     text-align: center;
     padding-bottom: 15px;
     font-family: 'Quicksand', sans-serif;
+     
+    
 }
 
 #ethereum_container {
@@ -138,6 +141,8 @@ color:rgb(244,230,153);
     text-align: center;
     padding-bottom: 15px;
     font-family: 'Quicksand', sans-serif;
+   
+       
 }
 
 #bitcoinCash_container {
@@ -147,6 +152,8 @@ color:rgb(244,230,153);
     text-align: center;
     padding-bottom: 15px;
     font-family: 'Quicksand', sans-serif;
+    border-radius: 0 0 16px 16px ;
+    margin-bottom: 0px   
 }
 
 #createAccountPage {
@@ -275,7 +282,7 @@ color:rgb(244,230,153);
     height: 50vh;
     width: 500px;
     text-align:center;
-    font-family:'Quicksand, sans-serif;
+    font-family:'Quicksand', sans-serif;
 }
 
 .loginBox {
@@ -307,10 +314,10 @@ color:rgb(244,230,153);
     width: 500px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     .cryptoGraph {
-        height: 150px;
-        width: 250px;
+        height: 100%;
+        width: 90%;
     }
     #signUpHeader {
         width: 50vh;
@@ -332,6 +339,10 @@ color:rgb(244,230,153);
     }
     #topPageLogo {
         margin-left: 0;
+        margin-left: 0;
+        height: 50px;
+        width: 15%;
+        margin-top: 40px;
     }
     #settingsButton {
         background: none;
@@ -339,7 +350,33 @@ color:rgb(244,230,153);
         padding: 0;
         margin-left: -10px;
     }
-
+    #settingsIcon {
+        font-size: 27px;
+    }
+    #coin_container {
+        width: inherit;
+    }
+    #MainPage {
+        padding: 5%;
+    }
+    #topOfPage h1 {
+    font-size: 30px;
+    }
+    #bitcoin_container {
+        border-radius: 16px;
+        padding:8px;
+    }
+    #litecoin_container {
+        border-radius: 16px;
+        padding:8px;
+    }
+    #ethereum_container {
+        border-radius: 16px;
+        padding:8px;
+    }
+    #bitcoinCash_container {
+        border-radius: 16px;
+    }
 }
 
 /* Settings Stuff */

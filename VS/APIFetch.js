@@ -271,7 +271,7 @@ function weekData () {
         weeklyTotal += results.data.quotes.USD.percent_change_7d;
         const userTotal = document.getElementById("userTotalValue");
         userTotal.innerHTML = `Net Percentage: ${(weeklyTotal/4).toFixed(3)}%`;
-        globalWeekly = (weeklyTotal/4).toFixed(3);
+        globalWeekly = weeklyTotal;
         if (weeklyTotal/4 > 0) {
             userTotal.style.color = "#009600";
         } else if (weeklyTotal/4 < 0) {
@@ -281,7 +281,7 @@ function weekData () {
         return globalWeekly;
     } else {
         const userTotal = document.getElementById("userTotalValue");
-        userTotal.innerHTML = `Net Percentage: ${globalWeekly}%`;
+        userTotal.innerHTML = `Net Percentage: ${(globalWeekly/4).toFixed(3)}%`;
         if (globalWeekly > 0) {
             userTotal.style.color = "#009600";
         } else if (globalWeekly < 0) {
