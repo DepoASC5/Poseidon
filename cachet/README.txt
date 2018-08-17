@@ -1,7 +1,5 @@
 THEME: Cachet - Free Bootstrap 4 Theme
-AUTHOR: uiCookies.com
-LICENSE: Under Creative Commons 3.0 (uiCookies.com/license)
-AUTHOR URI: https://uiCookies.com/
+
 
 
 CREDITS:
@@ -38,5 +36,3 @@ https://ionicons.com/
 
 jQuery Easing
 http://gsgd.co.uk/sandbox/jquery/easing/
-
-Video
