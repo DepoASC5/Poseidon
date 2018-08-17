@@ -84,10 +84,10 @@ fetch(USDDayData)
     const ethereumGraph = document.getElementById("ethereumGraph");
     const bitcoinCashGraph = document.getElementById("bitcoinCashGraph");
     //Sets source to daily image value
-    bitcoinGraph.src = "assets/BTCDaily/BTC8_14.jpeg";
-    litecoinGraph.src = "assets/LTCDaily/LTC8_14.jpeg";
-    ethereumGraph.src = "assets/ETHDaily/ETH8_14.jpeg";
-    bitcoinCashGraph.src = "assets/BCHDaily/BCH8_14.jpeg";
+    bitcoinGraph.src = "assets/BTCDaily/BTC8_16.png";
+    litecoinGraph.src = "assets/LTCDaily/LTC8_16.png";
+    ethereumGraph.src = "assets/ETHDaily/ETH8_16.png";
+    bitcoinCashGraph.src = "assets/BCHDaily/BCH8_16.png";
 
 
 //Grabs buttons for time period
@@ -173,10 +173,10 @@ function dayData () {
     const ethereumGraph = document.getElementById("ethereumGraph");
     const bitcoinCashGraph = document.getElementById("bitcoinCashGraph");
     //Sets source to daily image value
-    bitcoinGraph.src = "assets/BTCDaily/BTC8_14.jpeg";
-    litecoinGraph.src = "assets/LTCDaily/LTC8_14.jpeg";
-    ethereumGraph.src = "assets/ETHDaily/ETH8_14.jpeg";
-    bitcoinCashGraph.src = "assets/BCHDaily/BCH8_14.jpeg";
+    bitcoinGraph.src = "assets/BTCDaily/BTC8_16.png";
+    litecoinGraph.src = "assets/LTCDaily/LTC8_16.png";
+    ethereumGraph.src = "assets/ETHDaily/ETH8_16.png";
+    bitcoinCashGraph.src = "assets/BCHDaily/BCH8_16.png";
 }
 let weeklyTotal = 0;
 let runWeeklyTotal = true;
