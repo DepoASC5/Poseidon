@@ -1020,6 +1020,7 @@ html {
 
 body {
   font-family: "Montserrat", Arial, sans-serif; }
+/* overflow-x: hidden;} */
 
 input, textarea, p {
   font-weight: 300; }
